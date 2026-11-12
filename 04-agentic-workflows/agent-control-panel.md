@@ -4,10 +4,6 @@
 
 ## What Juno Is Doing
 
-## Agentic Workflow
-
-![Juno Agentic Risk Assessment Workflow](./images/juno-agentic-workflow.png)
-
 **Pillar:** Risk Flagging & Prioritization. **Agent level:** 2 — Semi-Autonomous. **Reasoning:** Planner–Executor with verification and bounded reassessment.
 
 Juno reviews authorized RocketShip project evidence, identifies and deduplicates delivery risks before scoring, and recommends actions. The Planner chooses projects, milestones and dependencies to investigate; the Executor gathers evidence, assesses six weighted factors and drafts actions; Verification checks source references, freshness, calculations, confidence and permissions.
@@ -15,6 +11,12 @@ Juno reviews authorized RocketShip project evidence, identifies and deduplicates
 **Scoring:** Schedule 25%; business impact 25%; blockers/dependencies 20%; resource availability 15%; cost exposure 10%; requirements uncertainty 5%. Each factor is rated 0–5; total = sum of (rating / 5 × weight in percentage points). Do not assign a validated total if critical evidence is missing.
 
 **Output:** Ranked risks and confidence, milestone dates/status, scoring breakdown and citations, mitigation checklist, draft stakeholder messages and decisions requiring PM approval. Current prototype uses static sample data and does not send or change external records.
+
+## Agentic Workflow Diagram
+
+![Juno Agentic Risk Assessment Workflow](./images/juno-agentic-workflow.png)
+
+The diagram illustrates the **proposed** bounded agentic workflow, not a working live agent in the current Lovable prototype.
 
 ## Four Levers
 
@@ -54,9 +56,9 @@ Preserve RocketShip's documented P0–P3 priorities and distinguish committed mi
 **Agency Permission:**
 
 - **Automatic:** Read authorized sources, identify risks, calculate supported scores, draft checklists and notifications, and present findings.
-- **Human confirmation:** Send a reviewed stakeholder message, create/update a Jira item, assign work or change project records. Approval applies only to the exact reviewed action, recipients and payload.
+- **Human confirmation (future permitted writes):** Create/update a Jira item, assign work or change project records after review of the exact action and destination. **Sending remains blocked in the current prototype**; future approval-enabled sending requires an explicit policy revision and action-specific authorization.
 - **Human-only decisions:** Release, budget, contracts, resource commitments, legal/regulatory determinations and strategic priority changes.
-- UI actions: **Approve & Send**, **Approve & Apply**, or **Request Changes**. In the classroom prototype these are simulated only, with no real sends or writes.
+- Proposed future UI actions: **Approve & Send** (only after a revised send policy), **Approve & Apply** (only for authorized writes), or **Request Changes**. These are conceptual or simulated controls, not proof that the current Lovable dashboard implements them; no real sends or writes occur.
 - After a permitted production action, verify tool success, record the outcome and report failures; approval alone is not evidence of execution.
 
 **Access Control:**
@@ -88,4 +90,4 @@ Preserve RocketShip's documented P0–P3 priorities and distinguish committed mi
 
 ---
 
-**Alignment note:** This reflects the latest Module 4 design. The earlier harness sketch described two attempts; today's updated workflow selects three cycles. The standalone AI PRD was not found among accessible files, so this version is grounded in the available Juno skill file, prototype notes, harness sketch and today's workflow decisions. Live monitoring and approved execution remain future capabilities, not features of the current static prototype.
+**Alignment note:** The PRD, skill file, prototype documentation and harness sketch are part of the same Juno project. The historical five-document assessment is separate from the three-project Lovable UI demonstration. The three-cycle design supersedes the older two-attempt wording; all updated documents now reflect that decision. Live monitoring, approvals and execution remain future capabilities.
