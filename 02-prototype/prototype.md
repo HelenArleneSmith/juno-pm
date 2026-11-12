@@ -129,20 +129,30 @@ Update the existing dashboard. Do not rebuild it or add new pages.
 A PM can select any project, inspect its individual risks, review milestone status, track mitigation actions, and identify stakeholders requiring notification—all within one dashboard.
 _____
 
+## Current Prototype Scope and Relationship to Later Modules
+
+The Lovable dashboard is a **static, interactive UI demonstration** of Juno's third pillar, risk flagging and prioritization. It uses **three invented projects** (Payment Integration, Customer Onboarding, Analytics Dashboard) and illustrative Jira/Slack/Confluence-style records. These records are fictional demonstration data; the prototype has no live integrations, backend, automated source retrieval, actual message sending, or project-record writes.
+
+The five historical RocketShip documents used in the later PRD and harness are a **separate, source-grounded evaluation scenario**. Do not describe the fictional dashboard records as extracted from those five documents. The first two Juno pillars—signal synthesis and specification drafting—are defined in the skill file but not implemented as prototype screens.
+
+**Subsequent design decisions (not proof of implementation):** The Module 3 PRD formalizes the six weighted risk factors, the requirement for evidence supporting every factor before displaying a numeric score, confidence distinct from severity, and a verification/evaluation plan. Module 4 specifies a proposed Level 2 Planner–Executor–Verification controller with at most three cycles, no-progress stopping, `NEEDS HUMAN REVIEW` handoff, reassessment after PM clarification, and action-specific approvals. These behaviors should be implemented and tested in a future iteration rather than claimed as working in this build.
+
+**Status definitions:** `NEEDS CLARIFICATION` indicates unresolved evidence; `SCORE UNAVAILABLE` means a numeric total cannot be validated; `NEEDS HUMAN REVIEW` is the proposed agentic-loop escalation state. All stakeholder messages remain drafts, and checklist completion does not change risk scores automatically.
+
 ## What it demonstrates
 
 _The one flow this prototype proves._
 
-This protoypes allows PM's to quickly 
-- identify the products that are currently at risk
-- assess the risk score of each product currently at risk
-- identify why products are at risk
-- identify next steps to reduce product risk
+This prototype allows PMs to quickly 
+- identify which fictional sample projects have flagged risks
+- review scores only where the sample evidence supports all six factors
+- inspect why those projects are at risk
+- identify proposed next steps to reduce product risk
 
 _____
 
 ## Debrief
 
-- **What worked:** The products that are currently at risk are being identified, and provided a risk score. There is also a description of how the risk score is calculated, and reasons for why specific products are at risk. 
-- **What broke / felt like a toy:** At first I created a dashbaord but did not tell the Lovely prompt to "create a prototype" so the there was no interactivity. However, after I used the correct verbage a demo dashboard was created with interactivity functionality. 
-- **What I'd change next pass:** Currenlty I created a dashbaord; however, I think that a dashboard that is another linke one has to manage may not be a great idea. I think if I can integrate it into JIRA or Confluence it would make more sense. Thus, in my next pass I will try to do this. Another think I need to expand on is the risk score, it is rather vague and it needs more substance and direction. I will be working on this next as well.
+- **What worked:** The interactive sample dashboard identifies and explains risks across three fictional projects, presents scoring information where available, and lets PMs explore risk evidence and proposed mitigations. Its calculated values and data coverage still require formal verification against the later PRD criteria. 
+- **What broke / felt like a toy:** The first Lovable prompt produced a noninteractive dashboard; after explicitly requesting a prototype, the next iteration added interactive controls. This remains a static-data demonstration, not a live agentic system. 
+- **What I'd change next pass:** A standalone dashboard may add another destination for PMs to manage; an eventual Jira or Confluence embedded experience may be more useful. The risk-scoring model has since been specified in the PRD, but its six-factor evidence checks and the Module 4 agentic loop still need implementation and testing in a later prototype iteration.
